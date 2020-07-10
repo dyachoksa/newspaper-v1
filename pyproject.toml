@@ -11,6 +11,8 @@ django = "^3.0.8"
 psycopg2-binary = "^2.8.5"
 
 [tool.poetry.dev-dependencies]
+black = {version = "19.10b0", allow-prereleases = true}
+flake8 = "^3.8.3"
 
 [tool.black]
 line-length = 88
