@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     # Third apps
     # Project apps
     "apps.pages.apps.PagesConfig",
+    "apps.articles.apps.ArticlesConfig",
 ]
 
 MIDDLEWARE = [
