@@ -52,6 +52,12 @@ class Article(models.Model):
     )
     description = models.TextField(verbose_name="description", max_length=600)
     content = models.TextField(verbose_name="content")
+    is_featured = models.BooleanField(
+        verbose_name="is featured",
+        default=False,
+        blank=True,
+        help_text="Mark an article as a featured on home page",
+    )
     is_published = models.BooleanField(
         verbose_name="is published", blank=True, default=False
     )
@@ -67,6 +73,12 @@ class Article(models.Model):
     image_730x350 = ImageSpecField(
         source="image",
         processors=[SmartResize(730, 350)],
+        format="JPEG",
+        options={"quality": 90},
+    )
+    image_420x330 = ImageSpecField(
+        source="image",
+        processors=[SmartResize(420, 330)],
         format="JPEG",
         options={"quality": 90},
     )

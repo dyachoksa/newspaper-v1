@@ -1,5 +1,61 @@
 {% extends "layouts/master.html" %}
 
 {% block content %}
-  <h1>The News</h1>
+  <div class="row mt-4">
+    <div class="col-12 col-lg-8">
+      <div class="row">
+        <div class="col-12 col-lg-7">
+          {# Main featured article #}
+          {% if featured_article %}
+            <div class="article featured">
+              {% if featured_article.image.name %}
+                <div class="mb-2">
+                  <a href="{% url 'articles:detail' featured_article.pk %}">
+                    <img class="img-fluid"
+                         src="{{ featured_article.image_420x330.url }}"
+                         alt="{{ featured_article.title }}"/>
+                  </a>
+                </div>
+              {% endif %}
+              {% if featured_article.category_id %}
+                <div class="py-1 font-weight-bold text-uppercase">
+                  <a href="#" class="text-info">{{ featured_article.category.name }}</a>
+                </div>
+              {% endif %}
+              <h3>
+                <a href="{% url 'articles:detail' featured_article.pk %}">{{ featured_article.title }}</a>
+              </h3>
+              <p class="text-muted">{{ featured_article.description }}</p>
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="col-12 col-lg-5">
+          {% for article in extra_articles %}
+            <div class="article mb-4">
+              {% if article.image.name %}
+                <div class="mb-2">
+                  <a href="{% url 'articles:detail' article.pk %}">
+                    <img class="img-fluid" src="{{ article.image_420x330.url }}"
+                         alt="{{ article.title }}" />
+                  </a>
+                </div>
+              {% endif %}
+              {% if article.category_id %}
+                <div class="py-1 font-weight-bold text-uppercase">
+                  <a href="#" class="text-info">{{ article.category.name }}</a>
+                </div>
+              {% endif %}
+              <h5>
+                <a href="{% url 'articles:detail' article.pk %}">{{ article.title }}</a>
+              </h5>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-lg-4">
+    </div>
+  </div>
 {% endblock %}

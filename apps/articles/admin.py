@@ -15,9 +15,16 @@ class ArticleAdmin(admin.ModelAdmin):
 
     search_fields = ("title",)
 
-    list_display = ("pk", "title", "is_published", "published_at", "created_at")
+    list_display = (
+        "pk",
+        "title",
+        "is_published",
+        "is_featured",
+        "published_at",
+        "created_at",
+    )
     list_display_links = ("pk", "title")
-    list_filter = ("is_published",)
+    list_filter = ("is_published", "is_featured")
 
 
 @admin.register(Category)

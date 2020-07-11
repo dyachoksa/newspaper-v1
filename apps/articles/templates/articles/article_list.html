@@ -5,7 +5,7 @@
 {% block main %}
   <div class="mt-4">
     {% for article in articles %}
-      <div class="mb-4">
+      <div class="mb-5">
         {% if article.image.name %}
           <div class="mb-2">
             <a href="{% url 'articles:detail' article.pk %}">
