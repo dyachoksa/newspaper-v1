@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # Third apps
     "bootstrap4",
+    "django_extensions",
     "imagekit",
     # Project apps
     "apps.pages.apps.PagesConfig",
@@ -55,6 +56,11 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+
+if DEBUG:
+    INSTALLED_APPS += ["debug_toolbar"]
+
+    MIDDLEWARE = ["debug_toolbar.middleware.DebugToolbarMiddleware"] + MIDDLEWARE
 
 ROOT_URLCONF = "newspaper.urls"
 
@@ -136,3 +142,8 @@ STATICFILES_DIRS = [
 MEDIA_URL = "/media/"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "public", "media")
+
+
+# Other settings
+
+INTERNAL_IPS = ["127.0.0.1"]
