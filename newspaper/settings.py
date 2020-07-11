@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     # Third apps
+    "bootstrap4",
     "imagekit",
     # Project apps
     "apps.pages.apps.PagesConfig",

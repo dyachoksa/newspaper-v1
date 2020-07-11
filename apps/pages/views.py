@@ -13,13 +13,22 @@ class HomePageView(TemplateView):
         featured_article = (
             Article.published.filter(is_featured=True).order_by("-published_at").first()
         )
+
         # additional featured articles
         extra_articles = Article.published.filter(is_featured=True).order_by(
             "-published_at"
         )[1:3]
 
+        latest_articles = Article.published.filter(is_featured=False).order_by(
+            "-published_at"
+        )[:4]
+
         context.update(
-            {"featured_article": featured_article, "extra_articles": extra_articles}
+            {
+                "featured_article": featured_article,
+                "extra_articles": extra_articles,
+                "latest_articles": latest_articles,
+            }
         )
 
         return context

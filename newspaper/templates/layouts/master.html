@@ -1,4 +1,4 @@
-{% load static %}
+{% load static bootstrap4 %}
 <!doctype html>
 <html lang="en">
   <head>
@@ -21,6 +21,8 @@
     {% include "partials/header.html" %}
 
     <main class="main container flex-grow-1 mt-4">
+      {% bootstrap_messages %}
+
       {% block content %}{% endblock %}
     </main>
 

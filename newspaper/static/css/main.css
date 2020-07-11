@@ -36,3 +36,8 @@ body {
 .header .navbar {
   border-bottom: 1px var(--gray) solid;
 }
+
+.mt-6,
+.my-6 {
+  margin-top: 4rem !important;
+}

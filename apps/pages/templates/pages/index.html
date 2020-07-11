@@ -58,4 +58,42 @@
     <div class="col-12 col-lg-4">
     </div>
   </div>
+
+  <div class="row mt-6">
+    <div class="col-12 col-lg-8">
+      <h2>Latest articles</h2>
+      <hr />
+
+      <div class="row">
+        {% for article in latest_articles %}
+          <div class="col-12 col-md-6">
+            <div class="article mb-4">
+              {% if article.image.name %}
+                <div class="mb-2">
+                  <a href="{% url 'articles:detail' article.pk %}">
+                    <img class="img-fluid" src="{{ article.image_420x330.url }}"
+                         alt="{{ article.title }}" />
+                  </a>
+                </div>
+              {% endif %}
+              {% if article.category_id %}
+                <div class="py-1 font-weight-bold text-uppercase">
+                  <a href="#" class="text-info">{{ article.category.name }}</a>
+                </div>
+              {% endif %}
+              <h5>
+                <a href="{% url 'articles:detail' article.pk %}">{{ article.title }}</a>
+              </h5>
+
+              {% if not article.image.name %}
+                <p>{{ article.description }}</p>
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="col-12 col-lg-4"></div>
+  </div>
 {% endblock %}
