@@ -1,4 +1,8 @@
 from django.db import models
+from imagekit.models import ImageSpecField
+from pilkit.processors import SmartResize
+
+from .storage import article_image_upload_to
 
 
 class PublishedArticlesManager(models.Manager):
@@ -38,6 +42,14 @@ class Article(models.Model):
         on_delete=models.SET_NULL,
         related_name="articles",
     )
+    image = models.ImageField(
+        verbose_name="image",
+        help_text="Article main image",
+        blank=True,
+        null=True,
+        max_length=150,
+        upload_to=article_image_upload_to,
+    )
     description = models.TextField(verbose_name="description", max_length=600)
     content = models.TextField(verbose_name="content")
     is_published = models.BooleanField(
@@ -51,6 +63,13 @@ class Article(models.Model):
 
     objects = models.Manager()
     published = PublishedArticlesManager()
+
+    image_730x350 = ImageSpecField(
+        source="image",
+        processors=[SmartResize(730, 350)],
+        format="JPEG",
+        options={"quality": 90},
+    )
 
     class Meta:
         verbose_name = "article"

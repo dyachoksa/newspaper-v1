@@ -1,8 +1,14 @@
-{% extends "layouts/master.html" %}
+{% extends "articles/base.html" %}
 
 {% block title %}{{ article.title }}{% endblock %}
 
-{% block content %}
+{% block main %}
+  {% if article.image.name %}
+    <div class="mb-2">
+      <img class="img-fluid" src="{{ article.image_730x350.url }}" alt="{{ article.title }}" />
+    </div>
+  {% endif %}
+
   {% if article.category_id %}
     <div class="py-1 font-weight-bold text-uppercase">
       <a href="#" class="text-info">{{ article.category.name }}</a>

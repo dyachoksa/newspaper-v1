@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     # Third apps
+    "imagekit",
     # Project apps
     "apps.pages.apps.PagesConfig",
     "apps.articles.apps.ArticlesConfig",
@@ -127,3 +128,7 @@ STATIC_URL = "/static/"
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "newspaper", "static"),
 ]
+
+MEDIA_URL = "/media/"
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "public", "media")

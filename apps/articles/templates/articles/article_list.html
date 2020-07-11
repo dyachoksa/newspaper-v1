@@ -1,14 +1,18 @@
-{% extends "layouts/master.html" %}
+{% extends "articles/base.html" %}
 
 {% block title %}Articles{% endblock %}
 
-{% block content %}
-  <h1>Articles</h1>
-  <hr />
-
+{% block main %}
   <div class="mt-4">
     {% for article in articles %}
       <div class="mb-4">
+        {% if article.image.name %}
+          <div class="mb-2">
+            <a href="{% url 'articles:detail' article.pk %}">
+              <img class="img-fluid" src="{{ article.image_730x350.url }}" alt="{{ article.title }}" />
+            </a>
+          </div>
+        {% endif %}
         {% if article.category_id %}
           <div class="py-1 font-weight-bold text-uppercase">
             <a href="#" class="text-info">{{ article.category.name }}</a>
