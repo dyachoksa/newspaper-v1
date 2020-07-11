@@ -1,6 +1,11 @@
 from django.db import models
 
 
+class PublishedArticlesManager(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().filter(is_published=True)
+
+
 class Category(models.Model):
     name = models.CharField(verbose_name="name", max_length=50, unique=True)
     slug = models.SlugField(max_length=50)
@@ -43,6 +48,9 @@ class Article(models.Model):
     )
     created_at = models.DateTimeField(verbose_name="created at", auto_now_add=True)
     updated_at = models.DateTimeField(verbose_name="updated at", auto_now=True)
+
+    objects = models.Manager()
+    published = PublishedArticlesManager()
 
     class Meta:
         verbose_name = "article"
