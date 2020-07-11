@@ -1,0 +1,7 @@
+<h1>{{ article.title }}</h1>
+
+<p>{{ article.published_at | default_if_none:"Not published" }}</p>
+
+<div class="content">
+  {{ article.content | safe }}
+</div>
