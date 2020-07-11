@@ -33,5 +33,7 @@ class CategoryAdmin(admin.ModelAdmin):
 
     prepopulated_fields = {"slug": ("name",)}
 
-    list_display = ("pk", "name", "created_at")
+    readonly_fields = ("created_at", "updated_at")
+
+    list_display = ("pk", "name", "created_at", "updated_at")
     list_display_links = ("pk", "name")

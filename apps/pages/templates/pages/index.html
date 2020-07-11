@@ -19,7 +19,8 @@
               {% endif %}
               {% if featured_article.category_id %}
                 <div class="py-1 font-weight-bold text-uppercase">
-                  <a href="#" class="text-info">{{ featured_article.category.name }}</a>
+                  <a href="{{ featured_article.category.get_absolute_url }}"
+                     class="text-info">{{ featured_article.category.name }}</a>
                 </div>
               {% endif %}
               <h3>
@@ -43,7 +44,8 @@
               {% endif %}
               {% if article.category_id %}
                 <div class="py-1 font-weight-bold text-uppercase">
-                  <a href="#" class="text-info">{{ article.category.name }}</a>
+                  <a href="{{ article.category.get_absolute_url }}"
+                     class="text-info">{{ article.category.name }}</a>
                 </div>
               {% endif %}
               <h5>
@@ -78,7 +80,8 @@
               {% endif %}
               {% if article.category_id %}
                 <div class="py-1 font-weight-bold text-uppercase">
-                  <a href="#" class="text-info">{{ article.category.name }}</a>
+                  <a href="{{ article.category.get_absolute_url }}"
+                     class="text-info">{{ article.category.name }}</a>
                 </div>
               {% endif %}
               <h5>

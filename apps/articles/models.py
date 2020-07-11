@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from imagekit.models import ImageSpecField
 from pilkit.processors import SmartResize
 
@@ -25,6 +26,9 @@ class Category(models.Model):
 
     def __repr__(self):
         return "<Category id={} name={}>".format(self.pk, self.name)
+
+    def get_absolute_url(self):
+        return reverse("articles:by_category", args=(self.slug,))
 
 
 class Article(models.Model):
