@@ -1,0 +1,45 @@
+<header class="header bg-light">
+  <div class="container py-4">
+    <div class="d-flex flex-row justify-content-between">
+      <a href="{% url 'pages:index' %}" class="header-logo">
+        <span class="text-secondary">The</span> <span class="text-primary">News</span>
+      </a>
+
+      <div class="search-and-login d-flex">
+        <form method="get" class="form-inline">
+          <div class="input-group">
+            <input type="text" class="form-control" name="q" placeholder="Search"
+                   aria-label="Search"/>
+            <div class="input-group-append">
+              <button class="btn btn-info" type="submit">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-toggle="collapse"
+              data-target="#mainNavbar"
+              aria-controls="mainNavbar" aria-expanded="false"
+              aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="py-2 collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a href="{% url 'pages:index' %}" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'articles:list' %}" class="nav-link">All Articles</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

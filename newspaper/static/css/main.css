@@ -17,3 +17,22 @@ body {
     font-family: 'Inter var', sans-serif;
   }
 }
+
+.h-screen {
+  height: 100vh;
+}
+
+.header-logo {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.header-logo:hover {
+  text-decoration: none;
+}
+
+.header .navbar {
+  border-bottom: 1px var(--gray) solid;
+}
