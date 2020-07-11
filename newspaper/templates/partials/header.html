@@ -38,6 +38,11 @@
           <li class="nav-item">
             <a href="{% url 'articles:list' %}" class="nav-link">All Articles</a>
           </li>
+          {% for category in categories %}
+            <li class="nav-item">
+              <a href="#" class="nav-link">{{ category.name }}</a>
+            </li>
+          {% endfor %}
         </ul>
       </div>
     </div>
