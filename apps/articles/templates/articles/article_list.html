@@ -9,6 +9,11 @@
   <div class="mt-4">
     {% for article in articles %}
       <div class="mb-3">
+        {% if article.category_id %}
+          <div class="py-1 font-weight-bold text-uppercase">
+            <a href="#" class="text-info">{{ article.category.name }}</a>
+          </div>
+        {% endif %}
         <h2>
           <a href="{% url 'articles:detail' article.pk %}">{{ article.title }}</a>
         </h2>
