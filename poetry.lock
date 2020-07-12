@@ -158,6 +158,17 @@ async = ["django-celery (>=3.0)"]
 async_rq = ["django-rq (>=0.6.0)"]
 
 [[package]]
+category = "main"
+description = "Summernote plugin for Django"
+name = "django-summernote"
+optional = false
+python-versions = "*"
+version = "0.8.11.6"
+
+[package.dependencies]
+django = "*"
+
+[[package]]
 category = "dev"
 description = "the modular source code checker: pep8 pyflakes and co"
 name = "flake8"
@@ -283,7 +294,7 @@ python-versions = "*"
 version = "1.4.1"
 
 [metadata]
-content-hash = "0b3087272312852348acd3cdde2458a01ece0bcfbc90f2015f20cebba4847670"
+content-hash = "6f48dbe4133d52fd4601ad20150bf138afa710cf4a05c0339f4c4309ab3044b3"
 python-versions = "^3.8"
 
 [metadata.files]
@@ -335,6 +346,9 @@ django-extensions = [
 django-imagekit = [
     {file = "django-imagekit-4.0.2.tar.gz", hash = "sha256:6ec0afb77cdf52cd453c9fc2c10ef350d111edfd6ce53c5977aa8a0e22cee00c"},
     {file = "django_imagekit-4.0.2-py2.py3-none-any.whl", hash = "sha256:304c3379f6a5cac387e47ace11195a603ad3cb01e3e951b45489824d25b00359"},
+]
+django-summernote = [
+    {file = "django-summernote-0.8.11.6.tar.gz", hash = "sha256:c23dae35c287f0d3d1ff801654ace77c3c6836453162e87c7330710d74d2eb88"},
 ]
 flake8 = [
     {file = "flake8-3.8.3-py2.py3-none-any.whl", hash = "sha256:15e351d19611c887e482fb960eae4d44845013cc142d42896e9862f775d8cf5c"},

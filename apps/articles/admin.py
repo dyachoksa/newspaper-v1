@@ -1,10 +1,11 @@
 from django.contrib import admin
+from django_summernote.admin import SummernoteModelAdmin
 
 from .models import Article, Category
 
 
 @admin.register(Article)
-class ArticleAdmin(admin.ModelAdmin):
+class ArticleAdmin(SummernoteModelAdmin):
     date_hierarchy = "created_at"
 
     ordering = ("-created_at",)
@@ -14,6 +15,7 @@ class ArticleAdmin(admin.ModelAdmin):
     readonly_fields = ("created_at", "updated_at")
 
     search_fields = ("title",)
+    summernote_fields = ("content",)
 
     list_display = (
         "pk",

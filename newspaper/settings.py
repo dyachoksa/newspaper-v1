@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "bootstrap4",
     "django_extensions",
     "imagekit",
+    "django_summernote",
     # Project apps
     "apps.pages.apps.PagesConfig",
     "apps.articles.apps.ArticlesConfig",
@@ -154,3 +155,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "public", "media")
 # Other settings
 
 INTERNAL_IPS = ["127.0.0.1"]
+
+X_FRAME_OPTIONS = "SAMEORIGIN"
