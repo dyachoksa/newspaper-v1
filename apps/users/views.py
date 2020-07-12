@@ -1,7 +1,7 @@
 from django.contrib.auth import views as auth_views, get_user_model
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
-from django.views.generic import CreateView
+from django.views.generic import CreateView, DetailView
 
 from .forms import RegisterForm
 
@@ -25,3 +25,9 @@ class LoginView(auth_views.LoginView):
 
 class LogoutView(auth_views.LogoutView):
     pass
+
+
+class UserDetailView(DetailView):
+    model = User
+    template_name = "users/user_detail.html"
+    context_object_name = "account"

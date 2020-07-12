@@ -48,10 +48,27 @@
 
         <div>
           {% if user.is_authenticated %}
-            {% if user.is_staff %}
-              <a href="{% url 'admin:index' %}" target="_blank" class="btn btn-info">Admin Portal</a>
-            {% endif %}
-            <a href="{% url 'users:logout' %}" class="btn btn-light">Logout</a>
+            <div class="dropdown">
+              <a id="profileMenuLink" href="#" class="btn btn-light dropdown-toggle"
+                 role="button" data-toggle="dropdown" aria-haspopup="true">
+                <i class="fas fa-user"></i> {{ user.username }}
+              </a>
+
+              <div class="dropdown-menu" aria-labelledby="profileMenuLink">
+                <a href="{% url 'users:detail' user.pk %}" class="dropdown-item">
+                  <i class="fas fa-user"></i> Profile
+                </a>
+                {% if user.is_staff %}
+                  <a href="{% url 'admin:index' %}" target="_blank" class="dropdown-item">
+                    <i class="fas fa-tools"></i> Admin Portal
+                  </a>
+                {% endif %}
+                <div class="dropdown-divider"></div>
+                <a href="{% url 'users:logout' %}" class="dropdown-item">
+                  <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+              </div>
+            </div>
           {% else %}
             <a href="{% url 'users:register' %}" class="btn btn-primary">Sign Up</a>
             <a href="{% url 'users:login' %}" class="btn btn-light">Sign In</a>
