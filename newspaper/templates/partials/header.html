@@ -31,7 +31,7 @@
       </button>
 
       <div class="py-2 collapse navbar-collapse" id="mainNavbar">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav mr-auto">
           <li class="nav-item">
             <a href="{% url 'pages:index' %}" class="nav-link">Home</a>
           </li>
@@ -45,6 +45,14 @@
             </li>
           {% endfor %}
         </ul>
+
+        <div>
+          {% if user.is_authenticated %}
+          {% else %}
+            <a href="#" class="btn btn-primary">Sign Up</a>
+            <a href="{% url 'users:login' %}" class="btn btn-light">Sign In</a>
+          {% endif %} 
+        </div>
       </div>
     </div>
   </nav>
