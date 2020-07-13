@@ -142,6 +142,14 @@ six = ">=1.2"
 
 [[package]]
 category = "main"
+description = "Essential Gravatar support for Django. Features helper methods, templatetags and a full test suite!"
+name = "django-gravatar2"
+optional = false
+python-versions = "*"
+version = "1.4.4"
+
+[[package]]
+category = "main"
 description = "Automated image processing for Django models."
 name = "django-imagekit"
 optional = false
@@ -294,7 +302,7 @@ python-versions = "*"
 version = "1.4.1"
 
 [metadata]
-content-hash = "6f48dbe4133d52fd4601ad20150bf138afa710cf4a05c0339f4c4309ab3044b3"
+content-hash = "00e28111ebb7b75339993152f015abb85ee4e37558e2e13b9ee2348197ffefb4"
 python-versions = "^3.8"
 
 [metadata.files]
@@ -342,6 +350,10 @@ django-debug-toolbar = [
 django-extensions = [
     {file = "django-extensions-3.0.2.tar.gz", hash = "sha256:c4e8cff39a26bfb72438cd52ab37d760a2aa146b715b6cd27fa8b862ac29fdc5"},
     {file = "django_extensions-3.0.2-py2.py3-none-any.whl", hash = "sha256:2b96bb937329b4038809d0fa79c55f6c1e941bce5057ca9ff5f3207aadffcbb9"},
+]
+django-gravatar2 = [
+    {file = "django-gravatar2-1.4.4.tar.gz", hash = "sha256:c813280967511ced93eea0359f60e5369c35b3311efe565c3e5d4ab35c10c9ee"},
+    {file = "django_gravatar2-1.4.4-py2.py3-none-any.whl", hash = "sha256:545a6c2c5c624c7635dec29c7bc0be1a2cb89c9b8821af8616ae9838827cc35b"},
 ]
 django-imagekit = [
     {file = "django-imagekit-4.0.2.tar.gz", hash = "sha256:6ec0afb77cdf52cd453c9fc2c10ef350d111edfd6ce53c5977aa8a0e22cee00c"},

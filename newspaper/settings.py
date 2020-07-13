@@ -43,10 +43,12 @@ INSTALLED_APPS = [
     "django_extensions",
     "imagekit",
     "django_summernote",
+    "django_gravatar",
     # Project apps
     "apps.pages.apps.PagesConfig",
     "apps.articles.apps.ArticlesConfig",
     "apps.users.apps.UsersConfig",
+    "apps.comments.apps.CommentsConfig",
 ]
 
 MIDDLEWARE = [
@@ -153,6 +155,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "public", "media")
 
 
 # Other settings
+
+GRAVATAR_DEFAULT_IMAGE = "identicon"
 
 INTERNAL_IPS = ["127.0.0.1"]
 
