@@ -1,4 +1,5 @@
 {% extends "layouts/master.html" %}
+{% load articles_tags %}
 
 {% block content %}
   <div class="row">
@@ -7,7 +8,14 @@
     </div>
 
     <div class="col-12 col-lg-4">
-      {% block sidebar %}{% endblock %}
+      {% block sidebar %}
+        <div class="mt-1">
+          <h2 class="h3">Most popular</h2>
+          <hr />
+
+          {% most_popular_articles %}
+        </div>
+      {% endblock %}
     </div>
   </div>
 {% endblock %}

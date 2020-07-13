@@ -16,7 +16,8 @@
          class="text-info">{{ article.category.name }}</a>
     </div>
   {% endif %}
-  <h1>{{ article.title }}</h1>
+
+  <h1 class="h2">{{ article.title }}</h1>
 
   <p>{{ article.published_at | default_if_none:"Not published" }}</p>
 

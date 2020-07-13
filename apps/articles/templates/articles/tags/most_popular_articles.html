@@ -1,0 +1,20 @@
+{% for article in articles %}
+  <div class="row mb-3">
+    <div class="col-1">
+      <span class="text-danger font-weight-bold">{{ forloop.counter }}.</span>
+    </div>
+
+    <div class="col-11">
+      <h3 class="h4 mb-1">
+        <a href="{% url 'articles:detail' article.pk %}">{{ article.title }}</a>
+      </h3>
+      <p class="mb-2 text-muted text-small">
+        <a href="{% url 'articles:by_category' article.category.slug %}"
+           class="text-info text-uppercase font-weight-bold"
+        >{{ article.category.name }}</a>
+        <span class="pl-2">{{ article.published_at }}</span>
+      </p>
+      <p>{{ article.description | truncatewords:8 }}</p>
+    </div>
+  </div>
+{% endfor %}
