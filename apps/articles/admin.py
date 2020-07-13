@@ -12,7 +12,7 @@ class ArticleAdmin(SummernoteModelAdmin):
 
     prepopulated_fields = {"slug": ("title",)}
 
-    readonly_fields = ("created_at", "updated_at")
+    readonly_fields = ("created_at", "updated_at", "comments_count")
 
     search_fields = ("title",)
     summernote_fields = ("content",)
@@ -22,6 +22,7 @@ class ArticleAdmin(SummernoteModelAdmin):
         "title",
         "is_published",
         "is_featured",
+        "comments_count",
         "published_at",
         "created_at",
     )

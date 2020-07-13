@@ -68,6 +68,16 @@ class Article(models.Model):
     published_at = models.DateTimeField(
         verbose_name="published at", blank=True, null=True, default=None
     )
+    comments_count = models.IntegerField(
+        verbose_name="number of comments",
+        blank=False,
+        null=False,
+        default=0,
+        help_text=(
+            "Number of comments associated with this article. "
+            "Calculates automatically after posting each comment."
+        ),
+    )
     created_at = models.DateTimeField(verbose_name="created at", auto_now_add=True)
     updated_at = models.DateTimeField(verbose_name="updated at", auto_now=True)
 
@@ -92,6 +102,7 @@ class Article(models.Model):
         verbose_name_plural = "articles"
 
         indexes = (
+            models.Index(fields=("-comments_count",)),
             models.Index(fields=("-created_at",)),
             models.Index(fields=("is_published", "-published_at")),
             models.Index(fields=("slug", "published_at")),
