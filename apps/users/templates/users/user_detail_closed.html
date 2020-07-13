@@ -1,0 +1,18 @@
+{% extends "layouts/master.html" %}
+
+{% block title %}{{ account.get_short_name | default:account.username }}{% endblock %}
+
+{% block content %}
+  <div class="mt-4 row">
+    <div class="col-12">
+      <h1>{{ account.get_short_name | default:account.username }}'s Profile</h1>
+      <hr />
+
+      <p class="text-dark">
+        It's a closed profile. Please
+        <a href="{% url 'users:login' %}">login</a> or
+        <a href="{% url 'users:register' %}">register</a> to see it.
+      </p>
+    </div>
+  </div>
+{% endblock %}

@@ -29,5 +29,10 @@ class LogoutView(auth_views.LogoutView):
 
 class UserDetailView(DetailView):
     model = User
-    template_name = "users/user_detail.html"
     context_object_name = "account"
+
+    def get_template_names(self):
+        if self.request.user.is_authenticated:
+            return "users/user_detail.html"
+
+        return "users/user_detail_closed.html"
