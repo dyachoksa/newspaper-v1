@@ -2,14 +2,16 @@
 {% load articles_tags %}
 
 {% block content %}
-  <div class="row">
+  <div class="row mt-4">
     <div class="col-12 col-lg-8">
       {% block main %}{% endblock %}
     </div>
 
     <div class="col-12 col-lg-4">
       {% block sidebar %}
-        <div class="mt-1">
+        {% category_featured_articles %}
+
+        <div class="mt-5">
           <h2 class="h3">Most popular</h2>
           <hr />
 

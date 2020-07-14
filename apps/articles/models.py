@@ -1,7 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from imagekit.models import ImageSpecField
-from pilkit.processors import SmartResize
+from pilkit.processors import SmartResize, Thumbnail
 
 from .storage import article_image_upload_to
 
@@ -62,6 +62,9 @@ class Article(models.Model):
         blank=True,
         help_text="Mark an article as a featured on home page",
     )
+    is_category_featured = models.BooleanField(
+        verbose_name="is category featured", default=False, blank=True
+    )
     is_published = models.BooleanField(
         verbose_name="is published", blank=True, default=False
     )
@@ -84,6 +87,9 @@ class Article(models.Model):
     objects = models.Manager()
     published = PublishedArticlesManager()
 
+    image_100x100 = ImageSpecField(
+        source="image", processors=[Thumbnail(100, 100, anchor="auto")], format="PNG"
+    )
     image_730x350 = ImageSpecField(
         source="image",
         processors=[SmartResize(730, 350)],
@@ -104,6 +110,7 @@ class Article(models.Model):
         indexes = (
             models.Index(fields=("-comments_count",)),
             models.Index(fields=("-created_at",)),
+            models.Index(fields=("is_category_featured",)),
             models.Index(fields=("is_published", "-published_at")),
             models.Index(fields=("slug", "published_at")),
         )

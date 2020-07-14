@@ -20,6 +20,7 @@ django-gravatar2 = "^1.4.4"
 black = {version = "19.10b0", allow-prereleases = true}
 flake8 = "^3.8.3"
 django-debug-toolbar = "^2.2"
+Werkzeug = "^1.0.1"
 
 [tool.black]
 line-length = 88
