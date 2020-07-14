@@ -21,6 +21,7 @@ class ArticleAdmin(SummernoteModelAdmin):
         "pk",
         "title",
         "category",
+        "author",
         "is_published",
         "is_featured",
         "comments_count",
@@ -29,7 +30,7 @@ class ArticleAdmin(SummernoteModelAdmin):
     )
     list_display_links = ("pk", "title")
     list_filter = ("is_published", "is_featured", "is_category_featured")
-    list_select_related = ("category",)
+    list_select_related = ("category", "author")
 
 
 @admin.register(Category)

@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.db import models
 from django.urls import reverse
 from imagekit.models import ImageSpecField
@@ -37,6 +38,14 @@ class Article(models.Model):
     )
     slug = models.SlugField(
         max_length=160, blank=True, null=False, unique_for_date="published_at"
+    )
+    author = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        verbose_name="author",
+        blank=False,
+        null=True,
+        related_name="articles",
+        on_delete=models.SET_NULL,
     )
     category = models.ForeignKey(
         Category,

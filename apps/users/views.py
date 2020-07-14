@@ -36,3 +36,9 @@ class UserDetailView(DetailView):
             return "users/user_detail.html"
 
         return "users/user_detail_closed.html"
+
+
+class AuthorDetailView(DetailView):
+    model = User
+    context_object_name = "author"
+    template_name = "users/author_detail.html"

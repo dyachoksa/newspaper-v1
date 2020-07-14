@@ -1,0 +1,37 @@
+{% extends "layouts/master.html" %}
+
+{% block title %}{{ author.get_full_name }}{% endblock %}
+
+{% block content %}
+  <div class="mt-4 row">
+    <div class="col-12 col-lg-4">
+      <h2 class="h2">Our Author</h2>
+      <hr />
+
+      <div class="mt-2">
+        <span>Author's photo</span>
+      </div>
+    </div>
+    <div class="col-12 col-lg-8">
+      <h1 class="h2">{{ author.get_full_name }}</h1>
+      <hr />
+
+      <div class="mt-2">
+        <p>Authors bio...</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-5 row">
+    <div class="col-12">
+      <h2 class="h2">Articles</h2>
+      <hr />
+    </div>
+
+    {% for article in author.articles.all %}
+      <div class="mb-2 col-12 col-md-6 col-lg-4">
+        {% include "articles/partials/article_short.html" with article=article only %}
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}

@@ -1,4 +1,5 @@
 {% extends "articles/base.html" %}
+{% load users_tags %}
 {% load bootstrap4 gravatar %}
 
 {% block title %}{{ article.title }}{% endblock %}
@@ -20,6 +21,13 @@
   <h1 class="h2">{{ article.title }}</h1>
 
   <p>{{ article.published_at | default_if_none:"Not published" }}</p>
+  {% if article.author_id %}
+    <p>
+      <span>By</span>
+      <a href="{{ article.author | author_detail_url }}" class="text-success">
+        {{ article.author.get_full_name }}</a>
+    </p>
+  {% endif %}
 
   <div class="content">
     {{ article.content | safe }}
