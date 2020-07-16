@@ -1,0 +1,61 @@
+{% extends "layouts/master.html" %}
+{% load bootstrap4 %}
+
+{% block title %}Search{% endblock %}
+
+{% block content %}
+  <div class="mt-5 row">
+    <div class="col-12">
+      <h1 class="h2">Search</h1>
+      <hr />
+    </div>
+
+    <div class="mt-4 col-12">
+      <form method="get">
+        {% bootstrap_form form %}
+
+        {% buttons %}
+          <button type="submit" class="btn btn-primary">Search</button>
+        {% endbuttons %}
+      </form>
+    </div>
+
+    {% if query %}
+      <div class="mt-4 col-12">
+        <h2 class="h2">Results</h2>
+        <hr />
+      </div>
+
+      {% for result in page.object_list %}
+        <div class="mt-2 col-12">
+          <div class="d-flex">
+            <div class="h5 text-danger">{{ forloop.counter }}.</div>
+            <div class="pl-2">
+              <h3 class="h5">
+                <a href="{{ result.object.get_absolute_url }}">{{ result.object.title }}</a>
+              </h3>
+              <p class="text-muted">{{ result.object.published_at }}</p>
+              <p>{{ result.object.description }}</p>
+            </div>
+          </div>
+        </div>
+      {% empty %}
+        <div class="mt-4 col-12">
+          <p class="text-muted">No results found.</p>
+        </div>
+      {% endfor %}
+
+      {% if page.has_previous or page.has_next %}
+        <div class="mt-4 col-12">
+          {% if page.has_previous %}
+            <a href="?q={{ query }}&amp;page={{ page.previous_page_number }}">{% endif %}&laquo;
+          Previous{% if page.has_previous %}</a>{% endif %}
+          |
+          {% if page.has_next %}
+            <a href="?q={{ query }}&amp;page={{ page.next_page_number }}">{% endif %}
+          Next &raquo;{% if page.has_next %}</a>{% endif %}
+        </div>
+      {% endif %}
+    {% endif %}
+  </div>
+{% endblock %}

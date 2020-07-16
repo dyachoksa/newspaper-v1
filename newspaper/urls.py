@@ -26,6 +26,7 @@ urlpatterns = [
     path("accounts/", include("apps.users.urls")),
     path("summernote/", include("django_summernote.urls")),
     path("authors/<int:pk>/", AuthorDetailView.as_view(), name="author"),
+    path("search/", include("haystack.urls")),
     path("", include("apps.pages.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

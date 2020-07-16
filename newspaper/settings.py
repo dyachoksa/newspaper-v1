@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "bootstrap4",
     "django_extensions",
     "imagekit",
+    "haystack",
     "django_summernote",
     "django_gravatar",
     # Project apps
@@ -152,6 +153,18 @@ STATICFILES_DIRS = [
 MEDIA_URL = "/media/"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "public", "media")
+
+
+# Search settings
+
+HAYSTACK_CONNECTIONS = {
+    "default": {
+        "ENGINE": "haystack.backends.whoosh_backend.WhooshEngine",
+        "PATH": os.path.join(BASE_DIR, "storage", "whoosh_index"),
+    },
+}
+
+HAYSTACK_SIGNAL_PROCESSOR = "haystack.signals.RealtimeSignalProcessor"
 
 
 # Other settings

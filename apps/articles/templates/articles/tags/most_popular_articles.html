@@ -1,11 +1,11 @@
 {% for article in articles %}
   <div class="row mb-3">
     <div class="col-1">
-      <span class="text-danger font-weight-bold">{{ forloop.counter }}.</span>
+      <span class="h5 text-danger">{{ forloop.counter }}.</span>
     </div>
 
     <div class="col-11">
-      <h3 class="h4 mb-1">
+      <h3 class="h5 mb-1">
         <a href="{% url 'articles:detail' article.pk %}">{{ article.title }}</a>
       </h3>
       <p class="mb-2 text-muted text-small">

@@ -6,7 +6,7 @@
       </a>
 
       <div class="search-and-login d-flex">
-        <form method="get" class="form-inline">
+        <form action="{% url 'haystack_search' %}" method="get" class="form-inline">
           <div class="input-group">
             <input type="text" class="form-control" name="q" placeholder="Search"
                    aria-label="Search"/>

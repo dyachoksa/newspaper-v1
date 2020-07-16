@@ -131,3 +131,6 @@ class Article(models.Model):
         return "<Article id={} title={} is_published={}>".format(
             self.pk, self.title, self.is_published
         )
+
+    def get_absolute_url(self):
+        return reverse("articles:detail", args=(self.pk,))
