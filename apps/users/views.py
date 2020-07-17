@@ -42,3 +42,17 @@ class AuthorDetailView(DetailView):
     model = User
     context_object_name = "author"
     template_name = "users/author_detail.html"
+
+    def get_queryset(self):
+        queryset = User.objects.select_related("staff_profile").filter(
+            staff_profile__pk__isnull=False
+        )
+
+        return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        context.update({"profile": self.object.staff_profile})
+
+        return context

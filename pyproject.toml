@@ -17,6 +17,7 @@ django-summernote = "^0.8.11"
 django-gravatar2 = "^1.4.4"
 django-haystack = {version = "3.0b2"}
 Whoosh = "^2.7.4"
+requests = "^2.24.0"
 
 [tool.poetry.dev-dependencies]
 black = {version = "19.10b0", allow-prereleases = true}

@@ -1,7 +1,11 @@
 from django.contrib import admin
+from django.contrib.auth import get_user_model
 from django_summernote.admin import SummernoteModelAdmin
 
 from .models import Article, Category
+
+
+User = get_user_model()
 
 
 @admin.register(Article)
@@ -31,6 +35,12 @@ class ArticleAdmin(SummernoteModelAdmin):
     list_display_links = ("pk", "title")
     list_filter = ("is_published", "is_featured", "is_category_featured")
     list_select_related = ("category", "author")
+
+    def formfield_for_foreignkey(self, db_field, request, **kwargs):
+        if db_field.name == "author":
+            kwargs["queryset"] = User.objects.filter(staff_profile__pk__isnull=False)
+
+        return super().formfield_for_foreignkey(db_field, request, **kwargs)
 
 
 @admin.register(Category)
